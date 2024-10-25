@@ -1,8 +1,10 @@
 *
 !*/
 # Whitelisted files:
+!static/
+!setup.sh
 !.gitignore
 !LICENSE
 !README.md
 !*.ipynb
-!/data/europa-galileo-mosaic.png
+!data/europa-galileo-mosaic.png
