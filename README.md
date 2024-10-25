@@ -1,5 +1,11 @@
 ## Detection of europan cycloids and other surface features. (WIP)
 
+To install the data, please run setup.sh:
+
+```sh setup.sh```
+
+This will get ~1GB of galileo image SSI data, from [OPUS](https://opus.pds-rings.seti.org/)
+
 ### Canny Edge Detection
 
 (Europa-Canny-Tuning.py)
