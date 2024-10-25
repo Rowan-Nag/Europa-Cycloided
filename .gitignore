@@ -1,0 +1,8 @@
+*
+!*/
+# Whitelisted files:
+!.gitignore
+!LICENSE
+!README.md
+!*.ipynb
+!/data/europa-galileo-mosaic.png
