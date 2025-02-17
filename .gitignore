@@ -6,5 +6,6 @@
 !.gitignore
 !LICENSE
 !README.md
-!*.ipynb
 !data/europa-galileo-mosaic.png
+!Europa-Canny-Tuning.py
+!Europa-Canny-Hough-Detection.py
