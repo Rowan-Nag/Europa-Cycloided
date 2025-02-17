@@ -2,7 +2,6 @@
 !*/
 # Whitelisted files:
 !static/*
-!setup.sh
 !.gitignore
 !LICENSE
 !README.md
