@@ -28,7 +28,7 @@ def preprocess_image(image):
     return image
 
 def process(image):
-    # image = cv.GaussianBlur(image, (5, 5), 0)
+    image = cv.GaussianBlur(image, (5, 5), 0)
     return image
 
 def canny(image, thresh1, thresh2):
@@ -36,12 +36,12 @@ def canny(image, thresh1, thresh2):
     return edges
 
 def houghLines(image, rho, theta, threshold):
-    lines = cv.HoughLines(image, rho=1, theta=np.pi/180, threshold=70)
+    lines = cv.HoughLines(image, rho=rho, theta=theta, threshold=threshold)
 
     return drawLines(lines, preprocessed_img.copy())
 
 def houghLinesP(image, rho, theta, threshold):
-    lines = cv.HoughLinesP(image, rho=1, theta=np.pi/180, threshold=70, minLineLength=30, maxLineGap=5)
+    lines = cv.HoughLinesP(image, rho=rho, theta=theta, threshold=threshold, minLineLength=30, maxLineGap=5)
 
     return drawLines(lines, preprocessed_img.copy())
 
@@ -52,7 +52,7 @@ def on_trackbar(val):
     threshold2 = cv.getTrackbarPos('Threshold2', 'Controls')
     houghThreshold = cv.getTrackbarPos('Hough Threshold', 'Controls')
     houghTheta = cv.getTrackbarPos('Hough Theta', 'Controls') * np.pi/180
-    houghRho = cv.getTrackbarPos('Hough Rho', 'Controls')
+    houghRho = cv.getTrackbarPos('Hough Rho', 'Controls') / 20
 
     processed_img = process(preprocessed_img)
     edges = canny(processed_img, threshold1, threshold2)
@@ -82,9 +82,9 @@ cv.moveWindow("Controls", 0, 0)
 # Create trackbars for threshold adjustment
 cv.createTrackbar('Threshold1', 'Controls', 200, 600, on_trackbar)
 cv.createTrackbar('Threshold2', 'Controls', 600, 1000, on_trackbar)
-cv.createTrackbar('Hough Threshold', 'Controls', 50, 200, on_trackbar)
+cv.createTrackbar('Hough Threshold', 'Controls', 70, 200, on_trackbar)
 cv.createTrackbar('Hough Theta', 'Controls', 0, 4, on_trackbar)
-cv.createTrackbar('Hough Rho', 'Controls', 0, 2, on_trackbar)
+cv.createTrackbar('Hough Rho', 'Controls', 1, 20, on_trackbar)
 # Initial call to display the image
 on_trackbar(0)
 
